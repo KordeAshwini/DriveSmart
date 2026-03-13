@@ -242,6 +242,8 @@ public class AuthService {
         Map<String, Object> response = new HashMap<>();
         response.put("token", token);
         response.put("name", user.getName());
+        response.put("role", user.getRole());
+        response.put("id",user.getId());
 
         return response;
     }

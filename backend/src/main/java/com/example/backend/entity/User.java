@@ -34,6 +34,7 @@ package com.example.backend.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -64,4 +65,8 @@ public class User {
     // PASSWORD RESET OTP
     private String resetOtp;
     private LocalDateTime resetOtpExpiry;
+
+    // RELATIONSHIP WITH SCHOOLS
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<School> schools;
 }

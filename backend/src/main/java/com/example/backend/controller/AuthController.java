@@ -56,7 +56,7 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:5173")
 public class AuthController {
 
     @Autowired
