@@ -252,6 +252,8 @@ const SignIn = ({ isOpen, onClose, onSwitchToForgot, setIsLoggedIn, setFirstName
             // store token and name
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("name", res.data.name);
+            localStorage.setItem("role", res.data.role);
+            localStorage.setItem("userId", res.data.id);
 
 
             // Update navbar login state
@@ -273,7 +275,22 @@ const SignIn = ({ isOpen, onClose, onSwitchToForgot, setIsLoggedIn, setFirstName
             onClose();
 
             // Redirect to home
-            navigate("/");
+            // navigate("/");
+            const role = res.data.role;
+
+            if (role === "ADMIN") {
+                navigate("/admin/dashboard");
+            }
+            else if (role === "OWNER") {
+                navigate("/owner/dashboard");
+            }
+            else if (role === "INSTRUCTOR") {
+                navigate("/instructor/dashboard");
+            }
+            else {
+                navigate("/");
+            }
+
 
         } catch (err) {
 

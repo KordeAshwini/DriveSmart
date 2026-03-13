@@ -9,6 +9,8 @@ import Schools from "../pages/common/Schools";
 import MockTest from "../pages/learning/MockTest";
 import LessonContent from "../pages/learning/LessonContent";
 import SchoolProfile from "../pages/schools/SchoolProfile";
+import AdminRoutes from "../admin/routes/AdminRoutes";
+import OwnerRoutes from "../owner/routes/OwnerRoutes";
 
 const AppRoutes = () => {
     return (
@@ -23,6 +25,8 @@ const AppRoutes = () => {
             <Route path="/mock-test" element={<MockTest />} />
             <Route path="/lesson/:slug" element={<LessonContent />} />
             <Route path="/school/:id" element={<SchoolProfile />} />
+            <Route path="/admin/*" element={<AdminRoutes />} />
+            <Route path="/owner/*" element={<OwnerRoutes />} />
         </Routes>
     );
 };
